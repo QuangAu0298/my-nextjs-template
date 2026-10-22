@@ -14,9 +14,8 @@ const StuffItem = ({ name, quantity, condition, id }: Stuff) => (
     <td>
       <Link href={`/edit/${id}`}>Edit</Link>
     </td>
-    <td><Button variant="danger" onClick={()=>removeItem(id)}>
-      <Trash />
-    </Button></td>
+    <td><Button variant="danger" onClick={()=>removeItem(id)}><Trash /></Button>
+    </td>
   </tr>
 );
 
