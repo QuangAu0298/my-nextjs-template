@@ -3,7 +3,7 @@ import StuffItemAdmin from '@/components/StuffItemAdmin';
 import { prisma } from '@/lib/prisma';
 import { adminProtectedPage } from '@/lib/page-protection';
 import { auth } from '@/lib/auth';
-import { Stuff } from '../../../prisma/generated/prisma';
+import { Stuff, User } from '../../../prisma/generated/prisma';
 
 const AdminPage = async () => {
   const session = await auth();
@@ -50,7 +50,7 @@ const AdminPage = async () => {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user) => (
+                {users.map((user: User) => (
                   <tr key={user.id}>
                     <td>{user.email}</td>
                     <td>{user.role}</td>
