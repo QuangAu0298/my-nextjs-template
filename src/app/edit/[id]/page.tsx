@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import { Stuff } from '@prisma/client';
-// import { Stuff } from '../../../prisma/generated/prisma';
+// import { Stuff } from '@prisma/client';
+import { Stuff } from '../../../prisma/generated/prisma';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import { prisma } from '@/lib/prisma';
 import { auth } from '@/lib/auth';
