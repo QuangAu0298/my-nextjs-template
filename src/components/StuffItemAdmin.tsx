@@ -1,4 +1,4 @@
-import { Stuff } from '../../prisma/generated/prisma';
+import { Stuff } from '@prisma/client';
 
 /* Renders a single row in the List Stuff table. See list/page.tsx. */
 const StuffItemAdmin = ({ name, quantity, condition, owner, id }: Stuff) => (

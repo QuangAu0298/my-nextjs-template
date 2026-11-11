@@ -3,7 +3,6 @@ import { prisma } from '@/lib/prisma';
 import StuffItem from '@/components/StuffItem';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import { auth } from '@/lib/auth';
-import { Stuff } from '../../../prisma/generated/prisma';
 
 /** Render a list of stuff for the logged in user. */
 const ListPage = async () => {
@@ -34,11 +33,10 @@ const ListPage = async () => {
                   <th>Quantity</th>
                   <th>Condition</th>
                   <th>Actions</th>
-                  <th>Remove</th>
                 </tr>
               </thead>
               <tbody>
-                {stuff.map((item: Stuff) => (
+                {stuff.map((item) => (
                   <StuffItem key={item.id} {...item} />
                 ))}
               </tbody>

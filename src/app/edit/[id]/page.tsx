@@ -1,10 +1,9 @@
 import { notFound } from 'next/navigation';
-// import { Stuff } from '@prisma/client';
-import { Stuff } from '../../../../prisma/generated/prisma';
+import { Stuff } from '@prisma/client';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import { prisma } from '@/lib/prisma';
 import { auth } from '@/lib/auth';
-import EditStuffForm from '@/components/EditStuffForm';//
+import EditStuffForm from '@/components/EditStuffForm';
 
 export default async function EditStuffPage({ params }: { params: { id: string | string[] } }) {
   const { id } = await params;

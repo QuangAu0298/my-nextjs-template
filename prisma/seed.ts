@@ -1,10 +1,8 @@
-import { PrismaClient, Role, Condition } from './generated/prisma';
+import { PrismaClient, Role, Condition } from '@prisma/client';
 import { hash } from 'bcrypt';
 import * as config from '../config/settings.development.json';
-import { PrismaPg } from '@prisma/adapter-pg';
 
-const adapter = new PrismaPg({ connectionString: process.env.MYONLINEDB_DATABASE_URL })
-const prisma = new PrismaClient({adapter});
+const prisma = new PrismaClient();
 
 async function main() {
   console.log('Seeding the database');

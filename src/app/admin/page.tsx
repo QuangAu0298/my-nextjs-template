@@ -3,7 +3,6 @@ import StuffItemAdmin from '@/components/StuffItemAdmin';
 import { prisma } from '@/lib/prisma';
 import { adminProtectedPage } from '@/lib/page-protection';
 import { auth } from '@/lib/auth';
-import { Stuff, User } from '../../../prisma/generated/prisma';
 
 const AdminPage = async () => {
   const session = await auth();
@@ -12,7 +11,7 @@ const AdminPage = async () => {
       user: { email: string; id: string; name: string };
     } | null,
   );
-  const stuff: Stuff[] = await prisma.stuff.findMany({});
+  const stuff = await prisma.stuff.findMany({});
   const users = await prisma.user.findMany({});
 
   return (
@@ -32,7 +31,7 @@ const AdminPage = async () => {
                 </tr>
               </thead>
               <tbody>
-                {stuff.map((item: Stuff) => (
+                {stuff.map((item) => (
                   <StuffItemAdmin key={item.id} {...item} />
                 ))}
               </tbody>
@@ -50,7 +49,7 @@ const AdminPage = async () => {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user: User) => (
+                {users.map((user) => (
                   <tr key={user.id}>
                     <td>{user.email}</td>
                     <td>{user.role}</td>
